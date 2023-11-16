@@ -1,5 +1,7 @@
 import { React, useState } from "react";
 import { Card } from "react-bootstrap";
+import CommentArea from './CommentArea';
+
 
 const SingleBook = ({ book }) => {
   const { title, img } = book;
@@ -25,7 +27,12 @@ const SingleBook = ({ book }) => {
       <Card.Body>
         <Card.Title>{book.title}</Card.Title>
       </Card.Body>
+      <div onClick={() => setSelected(!selected)}>
+      {/* Contenuto del libro */}
+      {selected && <CommentArea bookId={book.id} />}
+    </div>
     </Card>
+    
   );
 };
 
